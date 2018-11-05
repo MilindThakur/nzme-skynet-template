@@ -1,0 +1,38 @@
+# Note this users version 2.1 which means it requires docker-compose 1.9
+#
+# Usage:
+#   docker-compose up --force-recreate
+version: '2.1'
+
+services:
+  #--------------#
+  zalenium:
+    image: "dosel/zalenium"
+    container_name: zalenium
+    hostname: zalenium
+    tty: true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/bin/docker:/usr/bin/docker
+    ports:
+      - 4444:4444
+    command: >
+      start --desiredContainers 3
+            --maxDockerSeleniumContainers 3
+            --screenWidth 1930 --screenHeight 1080
+            --timeZone "Pacific/Auckland"
+            --videoRecordingEnabled false
+            --sauceLabsEnabled false
+            --browserStackEnabled false
+            --testingBotEnabled false
+            --startTunnel false
+            --sendAnonymousUsageInfo false
+            --maxTestSessions 100
+            --keepOnlyFailedTests true
+    environment:
+      - SAUCE_USERNAME
+      - SAUCE_ACCESS_KEY
+      - BROWSER_STACK_USER
+      - BROWSER_STACK_KEY
+      - TESTINGBOT_KEY
+      - TESTINGBOT_SECRET
