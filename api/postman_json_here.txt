@@ -1,5 +1,0 @@
-#todo
-
-You may upload your postman collection and environment json here.
-
-Delete this file once the scripts are added here.

@@ -1,0 +1,7 @@
+.cache/
+.idea/
+*.log
+*.pyc
+.tox/
+reports/
+

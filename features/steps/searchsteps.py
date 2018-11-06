@@ -1,16 +1,21 @@
 from behave import *
-from pages.pageobject.rhbasepage import RhBasePage
-from pages.pageobject.search.searchresultspage import SearchResultsPage
+from pages.pageobject.googlehomepage import GoogleHomePage
+from pages.pageobject.search.googlesearchresultspage import GoogleSearchResultsPage
 
 use_step_matcher("re")
 
-@when('I search on restaurant hub for "(?P<searchterm>.+)"')
-def i_search_on_restaurant_hub_for_the_city(context, searchterm):
-    context.homepage = RhBasePage()
-    context.searchterm = searchterm  # Used in later steps
-    context.homepage.search.search_for(searchterms=searchterm)
+@given("I am on the google homepage")
+def step_impl(context):
+    context.homepage = GoogleHomePage()
+    context.homepage.goto()
 
+@when('I search on google for "(?P<searchterm>.+)"')
+def step_impl(context, searchterm):
+    context.homepage = GoogleHomePage()
+    context.homepage.search.search_for(searchterm)
 
-@then('I can see "(?P<expected>.+)" in the search results')
-def i_see_the_suggested_search_results(context, expected):
-    assert SearchResultsPage().get_search_result_by_restaurant_name(expected)
+@then('I can see "(?P<expected>.+)" in search results')
+def step_impl(context, expected):
+    assert GoogleSearchResultsPage().searchresults.is_currently_visible()
+    assert GoogleSearchResultsPage().searchresultscontent.is_currently_visible()
+    assert expected in GoogleSearchResultsPage().searchresultscontent.text
