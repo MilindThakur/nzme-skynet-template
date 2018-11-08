@@ -1,4 +1,3 @@
-import logging
 from selenium.webdriver.common.by import By
 from nzme_skynet.core.controls.textinput import TextInput
 from nzme_skynet.core.controls.element import Element

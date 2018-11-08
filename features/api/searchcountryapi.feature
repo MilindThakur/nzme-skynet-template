@@ -7,6 +7,7 @@ Feature: API to search country by its country code
   I want to search a country by it's country code
   So that I can find name of the country
 
+  @api @countrysearch
   Scenario: Search New Zealand by it's country code using the search country API
     Given I call search country api with the country code NZ
     Then I should receive an authorized response
