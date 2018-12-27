@@ -1,0 +1,5 @@
+2018-12-27 16:27:36,366 [ INFO] [nzme_skynet.core.bdd.basetest]  Start of Scenario: Search New Zealand by it's country code using the search country API
+2018-12-27 16:27:37,480 [ INFO] [nzme_skynet.core.bdd.basetest]  End of test: Search New Zealand by it's country code using the search country API. Status PASSED !!!
+
+
+

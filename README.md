@@ -45,8 +45,14 @@ How do i run a web test?
 
 How do i run a api test?
 
-    
-    <to-do>
+    Select the run configuration for apiTests
+    Click run or debug.
+
+    To tests from the command line
+
+    behave features/api/searchcountryapi.feature # Run a feature file
+    behave --tags=@api # Run only tagged tests
+    behave --tags=~@api # Dont run tagged tests
     
 Contribution guidelines
 
