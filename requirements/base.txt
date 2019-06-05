@@ -1,3 +1,4 @@
 -r preinstall.txt
 jsonschema
 nzme-skynet
+allure-behave
