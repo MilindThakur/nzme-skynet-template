@@ -4,18 +4,20 @@ from pages.pageobject.search.googlesearchresultspage import GoogleSearchResultsP
 
 use_step_matcher("re")
 
+
 @given("I am on the google homepage")
 def step_impl(context):
     context.homepage = GoogleHomePage()
     context.homepage.goto()
 
+
 @when('I search on google for "(?P<searchterm>.+)"')
 def step_impl(context, searchterm):
-    context.homepage = GoogleHomePage()
     context.homepage.search.search_for(searchterm)
 
-@then('I can see "(?P<expected>.+)" in search results')
-def step_impl(context, expected):
-    assert GoogleSearchResultsPage().searchresults.is_currently_visible()
-    assert GoogleSearchResultsPage().searchresultscontent.is_currently_visible()
-    assert expected in GoogleSearchResultsPage().searchresultscontent.text
+
+@then('I can see "(?P<expected_url>.+)" at the top of the results')
+def step_impl(context, expected_url):
+    assert GoogleSearchResultsPage().search_result_container.is_currently_visible()
+    first_result_url = GoogleSearchResultsPage().get_result_url(1)
+    assert expected_url in first_result_url, "Unexpected {0} found in first result".format(first_result_url)

@@ -5,7 +5,7 @@ set -xe
 
 SCRIPT_ACTION=$1
 
-COMPOSE_FILE="docker-compose.yaml"
+COMPOSE_FILE="docker-compose-zalenium.yaml"
 
 # In OSX install gtimeout through `brew install coreutils`
 function mtimeout() {

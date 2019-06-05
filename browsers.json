@@ -1,0 +1,30 @@
+{
+    "safari": {
+        "default": "latest",
+        "versions": {
+            "latest": {
+                "image": ["/usr/bin/safaridriver"]
+            }
+        }
+    },
+    "chrome": {
+        "default": "73.0",
+        "versions": {
+            "73.0": {
+                "image": "selenoid/vnc_chrome:73.0",
+                "port": "4444",
+                "path": "/"
+            }
+        }
+    },
+    "firefox": {
+        "default": "66.0",
+        "versions": {
+          "66.0": {
+                "image": "selenoid/vnc_firefox:66.0",
+                "port": "4444",
+                "path": "/wd/hub"
+            }
+        }
+    }
+}

@@ -11,4 +11,4 @@ Feature: Search for specific websites on google
   Scenario: Search on google for Restaurant Hub
     Given I am on the google homepage
     When I search on google for "Restaurant Hub"
-    Then I can see "Restaurant Hub" in search results
+    Then I can see "https://www.restauranthub.co.nz/" at the top of the results
